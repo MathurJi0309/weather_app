@@ -23,7 +23,7 @@ const Temp = ({current,forecast,unit}) => {
           >
             <UilTemperature size={18} className="mr-1" />
             Feel like:
-            <span className="font-medium ml-1">{current.feelslike_c}</span>
+            <span className="font-medium ml-1">{unit ? (`${current.feelslike_c} °C`): `${current.feelslike_f} °F`}</span>
           </div>
           <div
             className="flex font-light text-sm items-center

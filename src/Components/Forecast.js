@@ -1,6 +1,6 @@
 import React from "react";
 
-const Forecast = ({forecast}) => {
+const Forecast = ({forecast,unit}) => {
   let forecastday=forecast.forecastday.slice(1,6);
   console.log("slice",forecastday);
   return (
@@ -15,7 +15,7 @@ const Forecast = ({forecast}) => {
             <div className="flex flex-col items-center justify-center" key={index}>
             <p className="font-light text-sm">{day.date.substring(5,10)}</p>
             <img src={day.day.condition.icon}/>
-            <p className="font-medium">{day.day.avgtemp_c}</p>
+            <p className="font-medium">{unit ? (`${day.day.avgtemp_c} °C`): `${day.day.avgtemp_f} °F`}</p>
           </div>
           ))
         }
