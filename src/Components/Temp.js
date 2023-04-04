@@ -6,14 +6,15 @@ import {
   UilSun,
   UilSunset,
 } from "@iconscout/react-unicons";
-const Temp = () => {
+const Temp = ({current,forecast}) => {
+  let data=forecast.forecastday[0];
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <p>Cloudy or whatever</p>
+        <p>{current.condition.text}</p>
       </div>
       <div className="flex flex-row items-center justify-between text-white py-3">
-        <img></img>
+        <img src={current.condition.icon}></img>
         <p className="text-5xl">34°</p>
         <div className="flex flex-col space-y-2">
           <div
@@ -21,8 +22,8 @@ const Temp = () => {
                 justify-center"
           >
             <UilTemperature size={18} className="mr-1" />
-            Real Fell:
-            <span className="font-medium ml-1">32°</span>
+            Feel like:
+            <span className="font-medium ml-1">{current.feelslike_c}</span>
           </div>
           <div
             className="flex font-light text-sm items-center
@@ -30,7 +31,7 @@ const Temp = () => {
           >
             <UilTear size={18} className="mr-1" />
             Humidity:
-            <span className="font-medium ml-1">70%</span>
+            <span className="font-medium ml-1">{current.humidity}</span>
           </div>
           <div
             className="flex font-light text-sm items-center
@@ -38,26 +39,26 @@ const Temp = () => {
           >
             <UilWind size={18} className="mr-1" />
             Wind:
-            <span className="font-medium ml-1">11 kmph</span>
+            <span className="font-medium ml-1">{current.wind_kph}</span>
           </div>
         </div>
       </div>
       <div className="flex flex-row items-center justify-center space-x-4 text-white text-sm py-2">
         <UilSun/>
         <p className="font-light">
-          Rise:<span className="font-medium ml-1"> 06:45 AM</span>
+          Rise:<span className="font-medium ml-1">{data.astro.sunrise}</span>
         </p>
         <UilSun />
         <p className="font-light">
-          Set:<span className="font-medium ml-1"> 07:35 PM</span>
+          Set:<span className="font-medium ml-1"> {data.astro.sunset}</span>
         </p>
         <UilSun />
         <p className="font-light">
-          High:<span className="font-medium ml-1"> 45°</span>
+          High:<span className="font-medium ml-1"> {data.day.maxtemp_c}</span>
         </p>
         <UilSun />
         <p className="font-light">
-          Low:<span className="font-medium ml-1"> 40°</span>
+          Low:<span className="font-medium ml-1"> {data.day.mintemp_c}</span>
         </p>
       </div>
 

@@ -1,11 +1,7 @@
 import React from 'react'
 
-const Buttons = () => {
+const Buttons = ({setQuery}) => {
   const cities=[
-    {
-      id:1,
-      title:'London'
-    },
     {
       id:2,
       title:'Varanasi'
@@ -31,7 +27,7 @@ const Buttons = () => {
     <div className='flex items-center justify-around my-6'>
       {
         cities.map((city)=>(
-          <button className="text-white text-lg font-medium" key={city.id}>
+          <button className="text-white text-lg font-medium" key={city.id} onClick={()=>setQuery({s:city.title})}>
             {city.title}
           </button>
         ))
