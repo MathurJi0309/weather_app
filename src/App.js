@@ -6,9 +6,10 @@ import Input from "./Components/Input";
 import Location from "./Components/Location";
 import Temp from "./Components/Temp";
 import { useEffect, useState } from "react";
+import Footer from "./Components/Footer";
 
 function App() {
-  const [query, setQuery] = useState({ s: "bihar" });
+  const [query, setQuery] = useState({ s: "Varanasi" });
   const [celsius, setCelsius] = useState(true);
   const [weather, setWeather] = useState(null);
 
@@ -31,7 +32,7 @@ function App() {
     getFormattedWeatherData();
   }, [query, celsius]);
   return (
-    <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
+    <div className="mx-auto max-w-screen-md mt-2 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400 APP">
       <Buttons setQuery={setQuery} />
       <Input setQuery={setQuery} setCelsius={setCelsius}/>
       {weather && (
@@ -41,6 +42,7 @@ function App() {
           <Forecast forecast={weather.forecast} unit={celsius}/>
         </div>
       )}
+      <Footer/>
     </div>
   );
 }
