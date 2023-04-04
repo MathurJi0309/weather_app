@@ -6,7 +6,7 @@ import {
   UilSun,
   UilSunset,
 } from "@iconscout/react-unicons";
-const Temp = ({current,forecast}) => {
+const Temp = ({current,forecast,unit}) => {
   let data=forecast.forecastday[0];
   return (
     <div>
@@ -15,7 +15,7 @@ const Temp = ({current,forecast}) => {
       </div>
       <div className="flex flex-row items-center justify-between text-white py-3">
         <img src={current.condition.icon}></img>
-        <p className="text-5xl">34°</p>
+        <p className="text-5xl">{unit ? (`${current.temp_c} °C`): `${current.temp_f} °F`}</p>
         <div className="flex flex-col space-y-2">
           <div
             className="flex font-light text-sm items-center

@@ -33,12 +33,12 @@ function App() {
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
       <Buttons setQuery={setQuery} />
-      <Input setQuery={setQuery}/>
+      <Input setQuery={setQuery} setCelsius={setCelsius}/>
       {weather && (
         <div>
-          <Location location={weather.location} />
-          <Temp current={weather.current} forecast={weather.forecast}/>
-          <Forecast forecast={weather.forecast} />
+          <Location location={weather.location}/>
+          <Temp current={weather.current} forecast={weather.forecast} unit={celsius}/>
+          <Forecast forecast={weather.forecast} unit={celsius}/>
         </div>
       )}
     </div>
